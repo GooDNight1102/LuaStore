@@ -154,7 +154,7 @@
   <dialog class="modal nl-popup" id="nlPopup" aria-labelledby="nlTitle">
     <button type="button" class="modal-close" data-close aria-label="Đóng">×</button>
     <div class="nl-grid">
-      <div class="swatch s6" aria-hidden="true"></div>
+      <div class="swatch s6 nl-media" aria-hidden="true"></div>
       <div>
         <span class="hero-eyebrow">Thư từ LỤA</span>
         <h2 id="nlTitle">Giảm 10% cho đơn đầu tiên</h2>
@@ -264,7 +264,18 @@
   nl.addEventListener('close', () => LUA.store.set('lua_nl_done', 1));
   // Hiện popup 1 lần, sau 15 giây, không làm phiền ở các trang mua/đăng nhập
   if (!LUA.store.get('lua_nl_done', 0) && !['giohang.html', 'thanhtoan.html', 'dangnhap.html'].includes(file)) {
-    setTimeout(() => { if (!document.querySelector('dialog[open]')) nl.showModal(); }, 15000);
+    setTimeout(() => {
+      if (document.querySelector('dialog[open]')) return;
+      // Ảnh bên trái: ngẫu nhiên 1 sản phẩm nổi bật có ảnh (ảnh lỗi thì giữ nền họa tiết)
+      LUA.ready.then(() => {
+        const pool = LUA.withPhoto(PRODUCTS.filter((p) => p.featured)), list = pool.length ? pool : LUA.withPhoto(PRODUCTS);
+        const box = nl.querySelector('.nl-media');
+        if (list.length && !box.querySelector('img')) {
+          LUA.fillPhoto(box, list[Math.floor(Math.random() * list.length)]);
+          box.querySelector('img').onerror = () => { box.classList.remove('photo'); box.innerHTML = ''; };
+        }
+      }).finally(() => nl.showModal());
+    }, 15000);
   }
 
   LUA.updateBadges();
