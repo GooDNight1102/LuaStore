@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1a17">
+<title>Thanh toán — LỤA</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Thanh toán đơn hàng.">
+<meta property="og:site_name" content="LỤA">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thanh toán — LỤA">
+<meta property="og:description" content="Thanh toán đơn hàng.">
+<meta property="og:url" content="%ORIGIN%/thanhtoan.html">
+<meta property="og:image" content="%ORIGIN%/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="voucher.css?v=3">
+</head>
+<body>
+<main id="main">
+  <section class="page-banner compact" id="checkoutBanner">
+    <div class="wrap">
+      <span class="hero-eyebrow">Giỏ hàng → Thanh toán → Hoàn tất</span>
+      <h1>Thanh toán</h1>
+    </div>
+  </section>
+
+  <section id="checkoutSection">
+    <div class="wrap">
+
+      <div class="empty-state" id="checkoutEmpty" hidden>
+        <h2>Chưa có sản phẩm để thanh toán</h2>
+        <p>Giỏ hàng của bạn đang trống.</p>
+        <a href="sanpham.html" class="btn btn-primary">Chọn sản phẩm</a>
+      </div>
+
+      <div class="checkout-layout" id="checkoutLayout" hidden>
+        <form id="checkoutForm" novalidate>
+          <p class="form-note" id="loginHint"><a href="dangnhap.html?next=thanhtoan.html">Đăng nhập</a> để điền nhanh thông tin và theo dõi đơn hàng. Bạn vẫn có thể đặt hàng không cần tài khoản.</p>
+          <div class="checkout-step">
+            <h2><span class="n">01</span> Thông tin người nhận</h2>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="fullName">Họ và tên <span class="req">*</span></label>
+                <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="Nguyễn Thị Hoa">
+                <span class="field-error" id="err-fullName"></span>
+              </div>
+              <div class="form-field">
+                <label for="phone">Số điện thoại <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="09xx xxx xxx">
+                <span class="field-error" id="err-phone"></span>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="email">Email <small style="font-weight:400; color:var(--ink-soft);">(để nhận xác nhận đơn hàng)</small></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="ban@email.com">
+              <span class="field-error" id="err-email"></span>
+            </div>
+          </div>
+
+          <div class="checkout-step">
+            <h2><span class="n">02</span> Địa chỉ giao hàng</h2>
+            <div class="form-field">
+              <label for="region">Khu vực <span class="req">*</span></label>
+              <select id="region" name="region">
+                <option value="">— Chọn khu vực —</option>
+              </select>
+              <span class="field-error" id="err-region"></span>
+            </div>
+            <div class="form-field">
+              <label for="address">Địa chỉ cụ thể <span class="req">*</span></label>
+              <input type="text" id="address" name="address" autocomplete="street-address" placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành">
+              <span class="field-error" id="err-address"></span>
+            </div>
+            <div class="form-field">
+              <label for="note">Ghi chú</label>
+              <textarea id="note" name="note" style="min-height:90px;" placeholder="Ví dụ: giao giờ hành chính, gọi trước khi giao…"></textarea>
+            </div>
+          </div>
+
+          <div class="checkout-step">
+            <h2><span class="n">03</span> Phương thức thanh toán</h2>
+            <div class="pay-options">
+              <label class="pay-option" id="codOption">
+                <input type="radio" name="payment" value="cod" checked>
+                <span><strong>Thanh toán khi nhận hàng (COD)</strong><small id="codNote">Kiểm tra hàng trước khi thanh toán. Áp dụng cho đơn dưới 5.000.000₫.</small></span>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment" value="bank">
+                <span><strong>Chuyển khoản ngân hàng</strong><small>Quét mã QR bằng app ngân hàng bất kỳ — số tiền và nội dung được điền sẵn.</small></span>
+              </label>
+            </div>
+            <div id="qrBox" aria-live="polite" hidden></div>
+            <div class="form-field" style="margin-top:20px;">
+              <label class="check" style="font-weight:400;">
+                <input type="checkbox" id="agree"> Tôi đã đọc và đồng ý với <a href="chinhsach.html" target="_blank" style="color:var(--wine); border-bottom:1px solid currentColor;">chính sách mua hàng</a> và <a href="doitra.html" target="_blank" style="color:var(--wine); border-bottom:1px solid currentColor;">đổi trả</a>.
+              </label>
+              <span class="field-error" id="err-agree"></span>
+            </div>
+          </div>
+        </form>
+
+        <aside class="summary" aria-label="Đơn hàng">
+          <h2>Đơn hàng (<span id="coCount">0</span>)</h2>
+          <div class="mini-lines" id="miniLines"></div>
+          <div class="sum-row"><span>Tạm tính</span><span id="coSubtotal"></span></div>
+          <div class="sum-row discount" id="coRowDiscount" hidden><span>Giảm giá (<span id="coCode"></span>)</span><span id="coDiscount"></span></div>
+          <div class="sum-row"><span>Phí vận chuyển</span><span id="coShip" class="muted">Chọn khu vực</span></div>
+          <div class="sum-row total"><span>Tổng thanh toán</span><span id="coTotal"></span></div>
+          <details class="vbox" id="voucherBox"></details>
+          <p class="form-note err" id="orderError" role="alert" hidden></p>
+          <button type="submit" form="checkoutForm" class="btn btn-primary btn-block" id="placeOrder">Đặt hàng</button>
+          <a href="giohang.html" class="continue">← Quay lại giỏ hàng</a>
+        </aside>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hoàn tất -->
+  <section id="successSection" hidden>
+    <div class="wrap">
+      <div class="success-panel">
+        <span class="check-mark" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+        </span>
+        <h1>Đặt hàng thành công!</h1>
+        <p>Cảm ơn bạn đã mua sắm tại LỤA. Nhân viên sẽ gọi xác nhận đơn trong vòng 24 giờ.</p>
+        <div class="order-code" id="orderCode"></div>
+        <div id="successQr"></div>
+        <div class="order-box">
+          <dl id="orderInfo"></dl>
+        </div>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="sanpham.html" class="btn btn-primary">Tiếp tục mua sắm</a>
+          <a href="index.html" class="btn">Về trang chủ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

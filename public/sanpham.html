@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1a17">
+<title>Sản phẩm — LỤA</title>
+<meta name="description" content="Toàn bộ áo, quần, váy đầm và phụ kiện nữ của LỤA. Lọc theo size, màu, giá.">
+<meta property="og:site_name" content="LỤA">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sản phẩm — LỤA">
+<meta property="og:description" content="Toàn bộ áo, quần, váy đầm và phụ kiện nữ của LỤA. Lọc theo size, màu, giá.">
+<meta property="og:url" content="%ORIGIN%/sanpham.html">
+<meta property="og:image" content="%ORIGIN%/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="main">
+  <section class="page-banner compact">
+    <div class="wrap">
+      <span class="hero-eyebrow">Cửa hàng</span>
+      <h1 id="shopTitle">Tất cả sản phẩm</h1>
+      <p>Áo, quần, váy đầm và phụ kiện từ chất liệu tự nhiên — lọc theo size, mức giá hoặc tìm theo tên.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap shop-layout">
+
+      <!-- Bộ lọc -->
+      <aside class="filters" id="filters" aria-label="Bộ lọc sản phẩm">
+        <div class="filters-head">
+          <h2>Bộ lọc</h2>
+          <button type="button" class="link-btn" id="clearFilters">Xóa lọc</button>
+        </div>
+
+        <fieldset class="filter-group">
+          <legend>Danh mục</legend>
+          <div id="catFilter"></div>
+        </fieldset>
+
+        <fieldset class="filter-group">
+          <legend>Khoảng giá</legend>
+          <label class="check"><input type="radio" name="price" value="" checked> Tất cả</label>
+          <label class="check"><input type="radio" name="price" value="0-500000"> Dưới 500.000₫</label>
+          <label class="check"><input type="radio" name="price" value="500000-1000000"> 500.000₫ – 1.000.000₫</label>
+          <label class="check"><input type="radio" name="price" value="1000000-99999999"> Trên 1.000.000₫</label>
+        </fieldset>
+
+        <fieldset class="filter-group">
+          <legend>Kích cỡ</legend>
+          <div class="chips" id="sizeFilter"></div>
+        </fieldset>
+
+        <fieldset class="filter-group">
+          <legend>Màu sắc</legend>
+          <div class="color-options" id="colorFilter"></div>
+        </fieldset>
+
+        <fieldset class="filter-group">
+          <legend>Khác</legend>
+          <label class="check"><input type="checkbox" id="saleOnly"> Đang giảm giá</label>
+          <label class="check"><input type="checkbox" id="newOnly"> Hàng mới về</label>
+        </fieldset>
+      </aside>
+
+      <!-- Kết quả -->
+      <div>
+        <div class="shop-toolbar" id="tim-kiem">
+          <span class="result-count" id="resultCount" aria-live="polite"></span>
+          <div class="tools">
+            <button type="button" class="btn filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filters">Bộ lọc</button>
+            <label class="search-box">
+              <span class="sr-only">Tìm sản phẩm</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+              <input type="search" class="input" id="searchInput" placeholder="Tìm: sơ mi, linen, túi…">
+            </label>
+            <label>
+              <span class="sr-only">Sắp xếp</span>
+              <select class="select" id="sortSelect">
+                <option value="macdinh">Nổi bật</option>
+                <option value="moinhat">Mới nhất</option>
+                <option value="banchay">Bán chạy</option>
+                <option value="giatang">Giá: thấp → cao</option>
+                <option value="giagiam">Giá: cao → thấp</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="active-filters" id="activeFilters"></div>
+        <div class="product-grid cols-3" id="productGrid"></div>
+        <nav class="pager" id="pager" aria-label="Phân trang" hidden></nav>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <h2>Không tìm thấy sản phẩm phù hợp</h2>
+          <p>Thử bỏ bớt điều kiện lọc hoặc tìm với từ khóa khác.</p>
+          <button type="button" class="btn" id="emptyReset">Xóa toàn bộ bộ lọc</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>

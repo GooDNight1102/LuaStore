@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1a17">
+<title>Đăng nhập — LỤA</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Đăng nhập hoặc tạo tài khoản LỤA.">
+<meta property="og:site_name" content="LỤA">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Đăng nhập — LỤA">
+<meta property="og:description" content="Đăng nhập hoặc tạo tài khoản LỤA.">
+<meta property="og:url" content="%ORIGIN%/dangnhap.html">
+<meta property="og:image" content="%ORIGIN%/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="main">
+  <section class="lx" aria-label="Đăng nhập tài khoản LỤA">
+    <!-- Nền động: các dải màu lụa trôi chậm + sợi chỉ chạy -->
+    <div class="lx-bg" aria-hidden="true">
+      <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+      <svg class="threads" viewBox="0 0 1200 600" preserveAspectRatio="none">
+        <path d="M-50 420 C 200 300, 420 560, 650 400 S 1050 260, 1250 380"/>
+        <path d="M-50 470 C 240 360, 460 600, 700 450 S 1080 330, 1250 440"/>
+        <path d="M-50 160 C 260 60, 520 260, 780 140 S 1100 60, 1250 150"/>
+      </svg>
+    </div>
+
+    <div class="wrap lx-grid">
+      <div class="lx-intro">
+        <span class="hero-eyebrow lx-rise">Tài khoản LỤA</span>
+        <h1 class="lx-rise">Đăng nhập để<br><span class="lx-rotate" id="lxRotate">mua sắm nhanh hơn</span></h1>
+        <ul class="lx-perks">
+          <li class="lx-rise"><b>01</b>Tự điền thông tin giao hàng khi thanh toán</li>
+          <li class="lx-rise"><b>02</b>Theo dõi đơn hàng theo dòng thời gian</li>
+          <li class="lx-rise"><b>03</b>Lưu sản phẩm yêu thích, viết đánh giá</li>
+        </ul>
+        <!-- Chồng ảnh sản phẩm nghiêng theo chuột (điền bằng JS từ CSDL) -->
+        <div class="lx-stack" id="lxStack" aria-hidden="true"></div>
+      </div>
+
+      <div class="lx-card" id="lxCard">
+        <div class="lx-tabs" role="tablist" aria-label="Đăng nhập hoặc đăng ký">
+          <button type="button" role="tab" data-tab="login" aria-selected="true" aria-controls="loginForm">Đăng nhập</button>
+          <button type="button" role="tab" data-tab="register" aria-selected="false" aria-controls="registerForm">Tạo tài khoản</button>
+          <span class="lx-ink" aria-hidden="true"></span>
+        </div>
+
+        <form id="loginForm" role="tabpanel" class="lx-form" novalidate>
+          <h2 class="lx-title">Chào mừng trở lại <span aria-hidden="true">✦</span></h2>
+          <p class="form-note err" role="alert" hidden></p>
+          <div class="fl">
+              <input type="email" id="loginEmail" name="email" placeholder=" " autocomplete="username" required>
+              <label for="loginEmail">Email</label>
+            </div>
+          <div class="fl">
+              <input type="password" id="loginPassword" name="password" placeholder=" " autocomplete="current-password" required>
+              <label for="loginPassword">Mật khẩu</label>
+            </div>
+          <div class="lx-row"><a href="quenmatkhau.html" class="text-link small">Quên mật khẩu?</a></div>
+          <button class="btn btn-primary btn-block lx-submit" type="submit"><span>Đăng nhập</span></button>
+        </form>
+
+        <form id="registerForm" role="tabpanel" class="lx-form" novalidate hidden>
+          <h2 class="lx-title">Gia nhập LỤA <span aria-hidden="true">✦</span></h2>
+          <p class="form-note err" role="alert" hidden></p>
+          <div class="fl">
+              <input type="text" id="regName" name="fullName" placeholder=" " autocomplete="name" required>
+              <label for="regName">Họ và tên</label>
+            </div>
+          <div class="lx-two">
+            <div class="fl">
+              <input type="email" id="regEmail" name="email" placeholder=" " autocomplete="email" required>
+              <label for="regEmail">Email</label>
+            </div>
+            <div class="fl">
+              <input type="tel" id="regPhone" name="phone" placeholder=" " autocomplete="tel" required>
+              <label for="regPhone">Số điện thoại</label>
+            </div>
+          </div>
+          <div class="fl">
+              <input type="password" id="regPassword" name="password" placeholder=" " autocomplete="new-password" required aria-describedby="pwHint">
+              <label for="regPassword">Mật khẩu</label>
+            </div>
+          <div class="lx-meter" aria-hidden="true"><i></i></div>
+          <p class="small muted" id="pwHint">Ít nhất 8 ký tự, gồm cả chữ và số.</p>
+          <div class="fl">
+              <input type="password" id="regConfirm" name="confirm" placeholder=" " autocomplete="new-password" required>
+              <label for="regConfirm">Nhập lại mật khẩu</label>
+            </div>
+          <button class="btn btn-primary btn-block lx-submit" type="submit"><span>Tạo tài khoản</span></button>
+        </form>
+        <div class="lx-demo">
+          <small>Tài khoản mẫu — bấm để điền nhanh</small>
+          <div>
+            <button type="button" class="demo-acc" data-demo="admin@lua.vn|Admin@123"><span class="pill role-admin">Quản trị</span></button>
+            <button type="button" class="demo-acc" data-demo="nhanvien@lua.vn|Staff@123"><span class="pill role-staff">Nhân viên</span></button>
+            <button type="button" class="demo-acc" data-demo="hoa.nguyen@example.com|Khach@123"><span class="pill role-customer">Khách hàng</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

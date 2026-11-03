@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1a17">
+<title>Chi tiết sản phẩm — LỤA</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="main">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="Đường dẫn">
+      <a href="index.html">Trang chủ</a><span aria-hidden="true">/</span>
+      <a href="sanpham.html">Sản phẩm</a><span aria-hidden="true">/</span>
+      <a href="sanpham.html" id="bcCat">Danh mục</a><span aria-hidden="true">/</span>
+      <span id="bcName" aria-current="page"></span>
+    </nav>
+  </div>
+
+  <section id="pdSection" style="padding-top:32px;">
+    <div class="wrap pd-layout">
+
+      <div class="pd-gallery">
+        <div id="mainSwatch" class="main-swatch"></div>
+        <div class="pd-thumbs" id="thumbs"></div>
+      </div>
+
+      <div class="pd-info">
+        <span class="pc-cat" id="pdCat"></span>
+        <h1 id="pdName"></h1>
+        <div class="pd-sku" id="pdSku"></div>
+        <a href="#danh-gia" class="pd-rating" id="pdRating"></a>
+        <div class="pd-price" id="pdPrice"></div>
+        <p class="pd-desc" id="pdDesc"></p>
+
+        <div class="option-block">
+          <div class="option-label">Màu sắc <span class="value" id="colorName"></span></div>
+          <div class="color-options" id="colorOptions" role="radiogroup" aria-label="Chọn màu"></div>
+        </div>
+
+        <div class="option-block">
+          <div class="option-label">Kích cỡ <a href="#bang-size" class="value" style="border-bottom:1px solid currentColor;">Bảng size</a></div>
+          <div class="chips" id="sizeOptions" role="radiogroup" aria-label="Chọn size"></div>
+          <p class="stock-note" id="stockNote" aria-live="polite"></p>
+        </div>
+
+        <div class="pd-actions">
+          <div class="qty" id="qtyBox">
+            <button type="button" data-step="-1" aria-label="Giảm số lượng">−</button>
+            <input type="number" id="qtyInput" value="1" min="1" max="10" aria-label="Số lượng">
+            <button type="button" data-step="1" aria-label="Tăng số lượng">+</button>
+          </div>
+          <button type="button" class="btn" id="addBtn">Thêm vào giỏ</button>
+          <button type="button" class="btn btn-primary" id="buyBtn">Mua ngay</button>
+          <button type="button" class="icon-btn wish-inline" id="wishBtn" aria-pressed="false" aria-label="Thêm vào yêu thích"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button>
+        </div>
+        <p class="pd-hint" id="pdHint" aria-live="polite"></p>
+
+        <div class="accordion">
+          <details open>
+            <summary>Chất liệu &amp; bảo quản</summary>
+            <div class="acc-body">
+              <p id="pdMaterial"></p>
+              <ul>
+                <li>Giặt tay hoặc giặt máy chế độ nhẹ, nước dưới 30°C.</li>
+                <li>Phơi nơi thoáng mát, tránh ánh nắng trực tiếp.</li>
+                <li>Là ủi ở nhiệt độ thấp, mặt trái sản phẩm.</li>
+              </ul>
+            </div>
+          </details>
+          <details id="bang-size">
+            <summary>Bảng size tham khảo</summary>
+            <div class="acc-body">
+              <table class="data-table">
+                <thead><tr><th>Size</th><th>Ngực (cm)</th><th>Eo (cm)</th><th>Mông (cm)</th><th>Cân nặng</th></tr></thead>
+                <tbody>
+                  <tr><td>S</td><td>80–84</td><td>62–66</td><td>86–90</td><td>42–48kg</td></tr>
+                  <tr><td>M</td><td>84–88</td><td>66–70</td><td>90–94</td><td>48–54kg</td></tr>
+                  <tr><td>L</td><td>88–92</td><td>70–74</td><td>94–98</td><td>54–60kg</td></tr>
+                  <tr><td>XL</td><td>92–96</td><td>74–78</td><td>98–102</td><td>60–66kg</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+          <details>
+            <summary>Giao hàng &amp; đổi trả</summary>
+            <div class="acc-body">
+              <ul>
+                <li>Miễn phí giao hàng nội thành Hội An / Đà Nẵng cho đơn từ 500.000₫.</li>
+                <li>Đổi size trong 7 ngày nếu sản phẩm còn nguyên tem mác.</li>
+                <li>Xem chi tiết tại <a href="doitra.html" style="color:var(--wine); border-bottom:1px solid currentColor;">Chính sách đổi trả</a>.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="notFound" hidden>
+    <div class="wrap">
+      <div class="empty-state">
+        <h2>Không tìm thấy sản phẩm</h2>
+        <p>Sản phẩm có thể đã ngừng kinh doanh hoặc đường dẫn không đúng.</p>
+        <a href="sanpham.html" class="btn btn-primary">Xem sản phẩm khác</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviewSection">
+    <div class="wrap">
+      <div class="section-head" id="danh-gia">
+        <div>
+          <span class="tag">Khách hàng nói gì</span>
+          <h2>Đánh giá sản phẩm</h2>
+        </div>
+      </div>
+      <div class="reviews-layout">
+        <div>
+          <div class="rv-summary" id="reviewSummary"></div>
+          <div id="reviewFormBox"></div>
+        </div>
+        <div id="reviewList"><div class="skeleton sk-block"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="relatedSection">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="tag">Có thể bạn thích</span>
+          <h2>Sản phẩm cùng danh mục</h2>
+        </div>
+        <a href="sanpham.html" class="view-all" id="relatedAll">Xem thêm</a>
+      </div>
+      <div class="product-grid" id="relatedGrid"></div>
+    </div>
+  </section>
+
+  <section id="recentSection" hidden>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="tag">Xem tiếp</span>
+          <h2>Bạn vừa xem</h2>
+        </div>
+      </div>
+      <div class="product-grid" id="recentGrid"></div>
+    </div>
+  </section>
+
+  <!-- Thanh mua hàng dính dưới màn hình (điện thoại) -->
+  <div class="sticky-atc" id="stickyBar">
+    <div><strong id="stickyName"></strong><span class="price" id="stickyPrice"></span></div>
+    <button type="button" class="btn btn-primary" id="stickyAdd">Thêm vào giỏ</button>
+  </div>
+</main>
+<script src="js/app.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/product.js"></script>
+</body>
+</html>

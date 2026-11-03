@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1a17">
+<title>Liên hệ — LỤA</title>
+<meta name="description" content="Showroom Hội An, TP.HCM, hotline 090 123 4567.">
+<meta property="og:site_name" content="LỤA">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Liên hệ — LỤA">
+<meta property="og:description" content="Showroom Hội An, TP.HCM, hotline 090 123 4567.">
+<meta property="og:url" content="%ORIGIN%/lienhe.html">
+<meta property="og:image" content="%ORIGIN%/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="main">
+  <section class="page-banner">
+    <div class="wrap">
+      <span class="hero-eyebrow">Liên hệ</span>
+      <h1>Cần tư vấn? Đội ngũ LỤA luôn sẵn sàng.</h1>
+      <p>Ghé showroom, nhắn Zalo hoặc điền form bên dưới — chúng tôi phản hồi trong vòng 1 ngày làm việc.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap contact-layout">
+
+      <div class="contact-info">
+        <dl>
+          <dt>Showroom Hội An</dt>
+          <dd>12 Trần Phú, Phường Minh An, Hội An, Quảng Nam</dd>
+
+          <dt>Showroom TP.HCM</dt>
+          <dd>45 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</dd>
+
+          <dt>Giờ mở cửa</dt>
+          <dd>9:00 – 21:00, tất cả các ngày trong tuần</dd>
+
+          <dt>Hotline</dt>
+          <dd>090 123 4567</dd>
+
+          <dt>Email</dt>
+          <dd>hoa@luastudio.vn</dd>
+
+          <dt>Mạng xã hội</dt>
+          <dd>Facebook / Instagram: @luastudio.vn</dd>
+        </dl>
+
+        <iframe class="map-embed" title="Bản đồ showroom LỤA — 12 Trần Phú, Hội An"
+          src="https://www.google.com/maps?q=12+Tr%E1%BA%A7n+Ph%C3%BA,+H%E1%BB%99i+An,+Qu%E1%BA%A3ng+Nam&z=16&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+
+      <div>
+        <h2 style="margin-bottom:22px; font-size:1.4rem;">Gửi lời nhắn cho LỤA</h2>
+        <p class="form-note ok" id="contactOk" hidden></p>
+        <form action="#" method="post" id="contactForm" novalidate>
+          <div class="form-field">
+            <label for="name">Họ và tên <span class="req">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Nguyễn Thị Hoa" required>
+            <span class="field-error" id="err-name"></span>
+          </div>
+          <div class="form-field">
+            <label for="phone">Số điện thoại <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="09xx xxx xxx" required>
+            <span class="field-error" id="err-phone"></span>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="ban@email.com">
+            <span class="field-error" id="err-email"></span>
+          </div>
+          <div class="form-field">
+            <label for="message">Nội dung <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="Mình cần tư vấn chọn size áo sơ mi lụa..." required></textarea>
+            <span class="field-error" id="err-message"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Gửi liên hệ</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

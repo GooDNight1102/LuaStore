@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1a17">
+<title>Tài khoản của tôi — LỤA</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Thông tin và đơn hàng.">
+<meta property="og:site_name" content="LỤA">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tài khoản của tôi — LỤA">
+<meta property="og:description" content="Thông tin và đơn hàng.">
+<meta property="og:url" content="%ORIGIN%/taikhoan.html">
+<meta property="og:image" content="%ORIGIN%/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="main">
+  <section class="page-banner compact">
+    <div class="wrap">
+      <span class="hero-eyebrow">Tài khoản của tôi</span>
+      <h1 id="hello">Tài khoản</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap account-layout">
+      <aside class="summary">
+        <h2>Thông tin</h2>
+        <dl class="profile" id="profile"></dl>
+        <details class="acc-edit" id="profileBox">
+          <summary>Sửa thông tin cá nhân</summary>
+          <form id="profileForm" novalidate>
+            <p class="form-note" role="alert" hidden></p>
+            <div class="form-field"><label for="pfName">Họ và tên</label><input id="pfName" name="fullName" autocomplete="name" required></div>
+            <div class="form-field"><label for="pfPhone">Số điện thoại</label><input id="pfPhone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="form-field"><label for="pfRegion">Khu vực giao hàng</label><select id="pfRegion" name="regionCode"><option value="">— Chọn —</option></select></div>
+            <div class="form-field"><label for="pfAddress">Địa chỉ</label><input id="pfAddress" name="address" autocomplete="street-address"></div>
+            <button class="btn btn-primary btn-block" type="submit">Lưu thông tin</button>
+          </form>
+        </details>
+        <details class="acc-edit">
+          <summary>Đổi mật khẩu</summary>
+          <form id="passwordForm" novalidate>
+            <p class="form-note" role="alert" hidden></p>
+            <div class="form-field"><label for="pwCurrent">Mật khẩu hiện tại</label><input id="pwCurrent" name="current" type="password" autocomplete="current-password" required></div>
+            <div class="form-field"><label for="pwNew">Mật khẩu mới</label><input id="pwNew" name="password" type="password" autocomplete="new-password" required></div>
+            <div class="form-field"><label for="pwConfirm">Nhập lại mật khẩu mới</label><input id="pwConfirm" name="confirm" type="password" autocomplete="new-password" required></div>
+            <p class="muted small">Ít nhất 8 ký tự, gồm cả chữ và số.</p>
+            <button class="btn btn-primary btn-block" type="submit">Đổi mật khẩu</button>
+          </form>
+        </details>
+        <a href="yeuthich.html" class="account-link">Sản phẩm yêu thích <span id="wishCount">0</span></a>
+        <a href="admin.html" class="btn btn-block" id="adminLink" hidden>Vào trang quản trị</a>
+        <button type="button" class="btn btn-block" id="logoutBtn">Đăng xuất</button>
+      </aside>
+      <div>
+        <h2 class="account-h">Đơn hàng của tôi (<span id="orderCount">0</span>)</h2>
+        <div id="orderList"><div class="skeleton sk-block"></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/account.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1a17">
+<title>Quản trị — LỤA</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+  <header class="admin-top">
+    <a href="index.html" class="logo">LỤA<span>.</span></a>
+    <span class="admin-label">Quản trị</span>
+    <div class="admin-user">
+      <span id="adminUser"></span>
+      <a href="index.html" class="link-btn">Xem cửa hàng</a>
+      <button type="button" class="link-btn" id="logoutBtn">Đăng xuất</button>
+    </div>
+  </header>
+  <div class="admin-layout">
+    <nav class="admin-nav" id="adminNav" aria-label="Menu quản trị"></nav>
+    <section class="admin-main" aria-labelledby="adminTitle">
+      <h1 id="adminTitle">Đang tải…</h1>
+      <div id="adminPanel"><div class="skeleton sk-block"></div></div>
+    </section>
+  </div>
+  <dialog class="modal product-dialog" id="productDialog" aria-label="Sản phẩm"></dialog>
+<script src="js/app.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

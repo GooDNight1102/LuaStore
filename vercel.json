@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "regions": ["sin1"],
+  "functions": {
+    "api/index.js": { "includeFiles": "public/*.html" }
+  },
+  "routes": [
+    { "src": "^/(?:[A-Za-z0-9_-]+\\.html)?$", "dest": "/api/index.js" },
+    { "handle": "filesystem" },
+    { "src": "^/(.*)$", "dest": "/api/index.js" }
+  ]
+}

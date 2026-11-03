@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1c1a17">
+<title>Giỏ hàng — LỤA</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Giỏ hàng của bạn.">
+<meta property="og:site_name" content="LỤA">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Giỏ hàng — LỤA">
+<meta property="og:description" content="Giỏ hàng của bạn.">
+<meta property="og:url" content="%ORIGIN%/giohang.html">
+<meta property="og:image" content="%ORIGIN%/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="voucher.css?v=3">
+</head>
+<body>
+<main id="main">
+  <section class="page-banner compact">
+    <div class="wrap">
+      <span class="hero-eyebrow">Mua sắm</span>
+      <h1>Giỏ hàng của bạn</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+
+      <div class="empty-state" id="cartEmpty" hidden>
+        <h2>Giỏ hàng đang trống</h2>
+        <p>Chọn vài món bạn thích rồi quay lại đây để đặt hàng nhé.</p>
+        <a href="sanpham.html" class="btn btn-primary">Tiếp tục mua sắm</a>
+      </div>
+
+      <div class="cart-layout" id="cartLayout" hidden>
+        <div>
+          <div class="cart-head" aria-hidden="true">
+            <span>Sản phẩm</span><span>Số lượng</span><span>Thành tiền</span>
+          </div>
+          <div id="cartLines"></div>
+          <div style="display:flex; justify-content:space-between; gap:12px; margin-top:22px; flex-wrap:wrap;">
+            <a href="sanpham.html" class="btn">← Tiếp tục mua sắm</a>
+            <button type="button" class="link-btn" id="clearCart">Xóa toàn bộ giỏ hàng</button>
+          </div>
+        </div>
+
+        <aside class="summary" aria-label="Tóm tắt đơn hàng">
+          <h2>Tóm tắt đơn hàng</h2>
+          <div class="sum-row"><span>Tạm tính (<span id="sumCount">0</span> sản phẩm)</span><span id="sumSubtotal">0₫</span></div>
+          <div class="sum-row discount" id="rowDiscount" hidden><span>Giảm giá (<span id="sumCode"></span>)</span><span id="sumDiscount"></span></div>
+          <div class="sum-row"><span>Phí vận chuyển</span><span class="muted" id="sumShip">Tính ở bước thanh toán</span></div>
+          <div class="sum-row total"><span>Tổng cộng</span><span id="sumTotal">0₫</span></div>
+
+          <details class="vbox" id="voucherBox"></details>
+
+          <a href="thanhtoan.html" class="btn btn-primary btn-block" id="toCheckout">Tiến hành thanh toán</a>
+          <a href="chinhsach.html" class="continue">Xem chính sách mua hàng</a>
+        </aside>
+      </div>
+
+    </div>
+  </section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>
